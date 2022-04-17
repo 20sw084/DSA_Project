@@ -1,4 +1,3 @@
-/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -28,7 +27,6 @@ public class DashBoard extends javax.swing.JFrame {
     
     JLabel res;
 
-    private JTextArea tout;
 	
 	/**
      * Creates new form NewJFrame
@@ -180,94 +178,129 @@ public class DashBoard extends javax.swing.JFrame {
     	
     	JFrame jf=new JFrame();
     	  jf.setTitle("Job Information");
-    	  jf.setBounds(300, 90, 400, 600);
+    	  jf.setBounds(300, 90, 450, 600);
     	  jf.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	  jf.setResizable(false);
+    	  jf.setVisible(true);
    
-          Container c = getContentPane();
-          c.setLayout(null);
+          jf.setLayout(null);
    
           JLabel title = new JLabel("Job Info:");
           title.setFont(new Font("Arial", Font.PLAIN, 30));
           title.setSize(300, 30);
-          title.setLocation(300, 30);
-          c.add(title);
+          title.setLocation(140, 30);
+          jf.add(title);
    
-          JLabel name = new JLabel("Name");
+          JLabel name = new JLabel("Job Title");
           name.setFont(new Font("Arial", Font.PLAIN, 20));
           name.setSize(100, 20);
-          name.setLocation(100, 100);
-          c.add(name);
+          name.setLocation(80, 100);
+          jf.add(name);
    
           tname = new JTextField();
           tname.setFont(new Font("Arial", Font.PLAIN, 15));
-          tname.setSize(190, 20);
-          tname.setLocation(200, 100);
-          c.add(tname);
+          tname.setSize(190, 30);
+          tname.setLocation(180, 100);
+          jf.add(tname);
    
-          JLabel mno = new JLabel("Mobile");
+          JLabel mno = new JLabel("Budget");
           mno.setFont(new Font("Arial", Font.PLAIN, 20));
-          mno.setSize(100, 20);
-          mno.setLocation(100, 150);
-          c.add(mno);
+          mno.setSize(100, 30);
+          mno.setLocation(80, 150);
+          jf.add(mno);
    
           tmno = new JTextField();
           tmno.setFont(new Font("Arial", Font.PLAIN, 15));
-          tmno.setSize(150, 20);
-          tmno.setLocation(200, 150);
-          c.add(tmno);
+          tmno.setSize(150, 30);
+          tmno.setLocation(180, 150);
+          jf.add(tmno);
    
           JLabel gender = new JLabel("Job Type");
           gender.setFont(new Font("Arial", Font.PLAIN, 20));
           gender.setSize(100, 20);
-          gender.setLocation(100, 200);
-          c.add(gender);
+          gender.setLocation(80, 200);
+          jf.add(gender);
    
           male = new JRadioButton("Hourly");
           male.setFont(new Font("Arial", Font.PLAIN, 15));
           male.setSelected(true);
-          male.setSize(75, 20);
+          male.setSize(75, 30);
           male.setLocation(200, 200);
-          c.add(male);
+          jf.add(male);
    
           female = new JRadioButton("Fixed");
           female.setFont(new Font("Arial", Font.PLAIN, 15));
           female.setSelected(false);
-          female.setSize(80, 20);
+          female.setSize(80, 30);
           female.setLocation(275, 200);
-          c.add(female);
+          jf.add(female);
    
           ButtonGroup gengp = new ButtonGroup();
           gengp.add(male);
           gengp.add(female);
      
-          JLabel add = new JLabel("Address");
+          JLabel add = new JLabel("Description");
           add.setFont(new Font("Arial", Font.PLAIN, 20));
-          add.setSize(100, 20);
-          add.setLocation(100, 300);
-          c.add(add);
+          add.setSize(100, 30);
+          add.setLocation(80, 300);
+          jf.add(add);
    
           JTextArea tadd = new JTextArea();
           tadd.setFont(new Font("Arial", Font.PLAIN, 15));
           tadd.setSize(200, 75);
-          tadd.setLocation(200, 300);
+          tadd.setLocation(180, 300);
           tadd.setLineWrap(true);
-          c.add(tadd);
+          jf.add(tadd);
    
           
            sub = new JButton("Submit");
           sub.setFont(new Font("Arial", Font.PLAIN, 15));
-          sub.setSize(100, 20);
-          sub.setLocation(150, 450);
-          sub.addActionListener((ActionListener) this);
-          c.add(sub);
+          sub.setSize(100, 30);
+          sub.setLocation(80, 450);
+          sub.addActionListener(new ActionListener() {
+
+  			@Override
+  			public void actionPerformed(ActionEvent e) {
+//  				String data1="";
+//                String data
+//                    = "Title : "
+//                      + tname.getText() + "\n"
+//                      + "Budget : "
+//                      + tmno.getText() + "\n";
+//                if (male.isSelected())
+//                    data1 = "Type : Hourly"
+//                            + "\n";
+//                else
+//                    data1 = "Type : Fixed"
+//                            + "\n";   
+//                String data3 = "Description : " + tadd.getText();
+  				JOptionPane.showMessageDialog(jf, "Job Added Successfully!!", "Success", JOptionPane.OK_OPTION);
+  				jf.dispose();
+  			}
+            
+            });
+          jf.add(sub);
    
            reset = new JButton("Reset");
           reset.setFont(new Font("Arial", Font.PLAIN, 15));
-          reset.setSize(100, 20);
-          reset.setLocation(270, 450);
-          reset.addActionListener((ActionListener) this);
-          c.add(reset);
+          reset.setSize(100, 30);
+          reset.setLocation(220, 450);
+          reset.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String def = "";
+	              tname.setText(def);
+	              tadd.setText(def);
+	              tmno.setText(def);
+	              res.setText(def);
+	              resadd.setText(def);
+			}
+          
+          }
+        		  );
+          jf.add(reset);
    
           setVisible(true);
       }
@@ -278,32 +311,11 @@ public class DashBoard extends javax.swing.JFrame {
       public void actionPerformed(ActionEvent e)
       {
           if (e.getSource() == sub) {
-                  String data1;
-                  String data
-                      = "Name : "
-                        + tname.getText() + "\n"
-                        + "Mobile : "
-                        + tmno.getText() + "\n";
-                  if (male.isSelected())
-                      data1 = "Gender : Male"
-                              + "\n";
-                  else
-                      data1 = "Gender : Female"
-                              + "\n";   
-                  String data3 = "Address : " + tadd.getText();
-                  tout.setText(data + data1 + data3);
-                  tout.setEditable(false);
-                  res.setText("Registration Successfully..");
+                  
           }
    
           else if (e.getSource() == reset) {
-              String def = "";
-              tname.setText(def);
-              tadd.setText(def);
-              tmno.setText(def);
-              res.setText(def);
-              tout.setText(def);
-              resadd.setText(def);
+              
           }
       }
     	
